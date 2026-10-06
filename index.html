@@ -1,0 +1,1248 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tamara Ribeiro | Psicóloga - TCC e Terapia do Esquema</title>
+    <meta name="description" content="Atendimento psicológico online para adolescentes, adultos e idosos. Terapia Cognitivo-Comportamental e Terapia do Esquema com acolhimento, profundidade e escuta humana.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        tealbrand: {
+                            50: '#f0f7f8',
+                            100: '#d9eaec',
+                            200: '#b4d4d9',
+                            600: '#1e5361',
+                            700: '#174450',
+                            800: '#133a46',
+                            900: '#0d2831',
+                            950: '#07181f',
+                        },
+                        sand: {
+                            50: '#fcfaf8',
+                            100: '#f5f0ea',
+                            200: '#e8ded2',
+                            300: '#d7c5b3',
+                            400: '#c5b09c',
+                            500: '#b39a84',
+                            600: '#9c816c',
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['"Playfair Display"', 'Georgia', 'serif'],
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        .gradient-teal-sand {
+            background: linear-gradient(135deg, #133a46 0%, #0d2831 100%);
+        }
+        .bg-cream {
+            background-color: #f9f7f4;
+        }
+        .brand-shadow {
+            box-shadow: 0 20px 40px -15px rgba(19, 58, 70, 0.08);
+        }
+        .scroll-stack {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+        .scroll-stack-card {
+            position: sticky;
+            top: var(--stack-top, 6rem);
+            z-index: var(--stack-layer, 1);
+            align-self: stretch;
+        }
+        @keyframes formation-photo-bounce {
+            0% { opacity: 0; transform: translateY(24px) scale(0.96); }
+            60% { opacity: 1; transform: translateY(-8px) scale(1.01); }
+            80% { transform: translateY(3px) scale(0.995); }
+            100% { opacity: 1; transform: translateY(0) scale(1); }
+        }
+        .formation-photo.is-pending { opacity: 0; transform: translateY(24px) scale(0.96); }
+        .formation-photo.is-visible { animation: formation-photo-bounce 850ms ease-out both; }
+        .text-reveal-mask {
+            display: inline-block;
+            overflow: hidden;
+            vertical-align: bottom;
+            padding-bottom: 0.12em;
+            margin-bottom: -0.12em;
+        }
+        .text-reveal-word {
+            display: inline-block;
+            opacity: 0.15;
+            transform: translateY(110%);
+            transition: transform 620ms cubic-bezier(0.2, 0.75, 0.25, 1), opacity 420ms ease;
+            transition-delay: calc(var(--word-order, 0) * 38ms);
+        }
+        .text-reveal-ready.is-visible .text-reveal-word {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        @media (max-width: 767px) {
+            .scroll-stack-card { top: var(--stack-top-mobile, 5.25rem); }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .formation-photo.is-pending { opacity: 1; transform: none; }
+            .formation-photo.is-visible { animation: none; }
+            .text-reveal-mask { display: contents; }
+            .text-reveal-word { opacity: 1; transform: none; transition: none; }
+            .scroll-stack-card { position: relative; top: auto; z-index: auto; }
+        }
+    </style>
+</head>
+<body class="font-sans text-slate-800 bg-cream antialiased selection:bg-sand-300 selection:text-tealbrand-900">
+
+    <!-- Navigation -->
+    <header class="sticky top-0 z-40 bg-cream/90 backdrop-blur-md border-b border-sand-200/60 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                
+                <!-- Brand Logo -->
+                <a href="#" class="flex items-center group" aria-label="Tamara Ribeiro, Psicóloga — início">
+                    <img src="assets/logo-tamara-ribeiro.png" alt="Tamara Ribeiro — Psicóloga" class="h-14 sm:h-16 w-auto max-w-[125px] object-contain rounded-lg" width="546" height="337" decoding="async">
+                </a>
+
+                <!-- Desktop Menu -->
+                <nav class="hidden md:flex items-center space-x-7 font-medium text-sm text-slate-700">
+                    <a href="#sobre" class="hover:text-tealbrand-800 transition-colors">Sobre Mim</a>
+                    <a href="#abordagens" class="hover:text-tealbrand-800 transition-colors">Abordagens</a>
+                    <a href="#exterior" class="hover:text-tealbrand-800 transition-colors">Brasil, EUA e Europa</a>
+                    <a href="#formacao" class="hover:text-tealbrand-800 transition-colors">Formação</a>
+                    <a href="#como-funciona" class="hover:text-tealbrand-800 transition-colors">Como Funciona</a>
+                    <a href="#atendimento" class="hover:text-tealbrand-800 transition-colors">Atendimento</a>
+                    <a href="#faq" class="hover:text-tealbrand-800 transition-colors">Dúvidas</a>
+                </nav>
+
+                <!-- Header CTA Button -->
+                <div class="hidden lg:flex items-center">
+                    <button onclick="openWhatsappModal()" class="inline-flex items-center gap-2 bg-tealbrand-800 hover:bg-tealbrand-900 text-white font-medium text-sm px-5 py-2.5 rounded-full transition-all duration-200 shadow-sm hover:shadow-md">
+                        <i data-lucide="message-circle" class="w-4 h-4 text-sand-300"></i>
+                        <span>Agendar Consulta</span>
+                    </button>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" type="button" class="p-2 rounded-lg text-slate-700 hover:text-tealbrand-800 hover:bg-sand-100 focus:outline-none" aria-label="Abrir menu">
+                        <i data-lucide="menu" class="w-6 h-6"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden bg-cream border-b border-sand-200 px-4 pt-2 pb-6 space-y-3">
+            <a href="#sobre" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:bg-sand-100">Sobre Mim</a>
+            <a href="#abordagens" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:bg-sand-100">Abordagens</a>
+            <a href="#exterior" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-md text-base font-medium text-tealbrand-800 font-semibold bg-sand-100">🌍 Atendimento Brasil, EUA e Europa</a>
+            <a href="#formacao" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:bg-sand-100">Formação</a>
+            <a href="#como-funciona" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:bg-sand-100">Como Funciona</a>
+            <a href="#atendimento" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:bg-sand-100">Atendimento</a>
+            <a href="#faq" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:bg-sand-100">Dúvidas Frequentes</a>
+            <button onclick="toggleMobileMenu(); openWhatsappModal()" class="w-full mt-2 flex items-center justify-center gap-2 bg-tealbrand-800 text-white font-medium text-sm py-3 rounded-full">
+                <i data-lucide="message-circle" class="w-4 h-4 text-sand-300"></i>
+                <span>Falar no WhatsApp</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative pt-12 pb-20 md:pt-20 md:pb-28 overflow-hidden">
+        <!-- Background subtle decorative elements -->
+        <div class="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 bg-sand-200/50 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute bottom-0 left-0 -ml-20 -mb-20 w-80 h-80 bg-tealbrand-100/60 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+                
+                <!-- Left Hero Copy -->
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                    
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-sand-200/70 text-tealbrand-900 text-xs sm:text-sm font-medium">
+                        <span class="w-2 h-2 rounded-full bg-tealbrand-600 animate-pulse"></span>
+                        <span>Psicoterapia Online no Brasil, EUA e Europa</span>
+                    </div>
+
+                    <h1 class="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-tealbrand-950 font-normal leading-tight">
+                        Um espaço seguro para compreender seus <span class="italic text-sand-600 font-serif">padrões emocionais</span> e se reencontrar.
+                    </h1>
+
+                    <p class="text-slate-600 text-base sm:text-lg leading-relaxed max-w-2xl mx-auto lg:mx-0 font-light">
+                        Apoio psicológico especializado para brasileiros que moram fora do país (EUA e Europa) e em território nacional. Fortalecimento da autoestima e regulação da ansiedade pautados na <strong class="font-semibold text-slate-800">Terapia Cognitivo-Comportamental (TCC)</strong> e na <strong class="font-semibold text-slate-800">Terapia do Esquema</strong>.
+                    </p>
+
+                    <!-- Trust Pillars Badges -->
+                    <div class="pt-2 flex flex-wrap items-center justify-center lg:justify-start gap-3 text-xs font-medium text-slate-700">
+                        <div class="flex items-center gap-1.5 bg-white/80 backdrop-blur px-3 py-1.5 rounded-lg border border-sand-200">
+                            <i data-lucide="globe" class="w-4 h-4 text-tealbrand-600"></i>
+                            <span>Brasil, EUA e Europa</span>
+                        </div>
+                        <div class="flex items-center gap-1.5 bg-white/80 backdrop-blur px-3 py-1.5 rounded-lg border border-sand-200">
+                            <i data-lucide="shield-check" class="w-4 h-4 text-tealbrand-600"></i>
+                            <span>Atendimento 100% Sigiloso (CFP)</span>
+                        </div>
+                        <div class="flex items-center gap-1.5 bg-white/80 backdrop-blur px-3 py-1.5 rounded-lg border border-sand-200">
+                            <i data-lucide="heart-handshake" class="w-4 h-4 text-tealbrand-600"></i>
+                            <span>Escuta em sua Língua Materna</span>
+                        </div>
+                    </div>
+
+                    <!-- Hero Call to Action -->
+                    <div class="pt-4 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+                        <button onclick="openWhatsappModal()" class="w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-tealbrand-800 hover:bg-tealbrand-900 text-white text-base font-medium px-8 py-4 rounded-full transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-0.5">
+                            <i data-lucide="message-circle" class="w-5 h-5 text-sand-300"></i>
+                            <span>Iniciar Atendimento no WhatsApp</span>
+                        </button>
+                        
+                        <a href="#exterior" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-white hover:bg-sand-100 text-slate-700 border border-sand-300 text-base font-medium px-6 py-4 rounded-full transition-colors">
+                            <span>Para Brasileiros no Exterior</span>
+                            <i data-lucide="arrow-down-right" class="w-4 h-4"></i>
+                        </a>
+                    </div>
+
+                    <p class="text-xs text-slate-500 pt-1 flex flex-wrap items-center justify-center lg:justify-start gap-3">
+                        <span>📱 WhatsApp: <strong class="font-semibold text-slate-700">+55 (31) 9.8385-0655</strong></span>
+                        <span class="hidden sm:inline text-slate-300">•</span>
+                        <span>✉️ E-mail: <a href="mailto:tamararibeiropsicologa@gmail.com" class="font-semibold text-slate-700 hover:underline">tamararibeiropsicologa@gmail.com</a></span>
+                    </p>
+                </div>
+
+                <!-- Right Hero Visual Card -->
+                <div class="lg:col-span-5 relative">
+                    <div class="relative mx-auto max-w-md lg:max-w-none">
+                        
+                        <!-- Main Card -->
+                        <div class="bg-white rounded-3xl p-8 shadow-xl border border-sand-200/80 relative overflow-hidden">
+                            
+                            <!-- Brand Icon Backdrop -->
+                            <div class="absolute -right-10 -bottom-10 opacity-5 pointer-events-none text-tealbrand-900">
+                                <svg class="w-64 h-64 fill-none stroke-current" viewBox="0 0 64 64" stroke-width="1.5">
+                                    <path d="M 12 36 A 20 20 0 0 0 52 36 Z" />
+                                    <line x1="32" y1="36" x2="32" y2="16" />
+                                    <path d="M 32 26 C 22 16 14 24 24 32 C 28 34 32 28 32 28" />
+                                    <path d="M 32 26 C 42 16 50 24 40 32 C 36 34 32 28 32 28" />
+                                </svg>
+                            </div>
+
+                            <div class="flex items-center gap-4 mb-6">
+                                <div class="w-16 h-16 rounded-2xl bg-sand-200 flex items-center justify-center text-tealbrand-800 shadow-inner">
+                                    <svg class="w-10 h-10 stroke-current fill-none" viewBox="0 0 64 64" stroke-width="2.2">
+                                        <path d="M 12 36 A 20 20 0 0 0 52 36 Z" />
+                                        <line x1="32" y1="36" x2="32" y2="16" />
+                                        <path d="M 32 26 C 22 16 14 24 24 32 C 28 34 32 28 32 28" />
+                                        <path d="M 32 26 C 42 16 50 24 40 32 C 36 34 32 28 32 28" />
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h3 class="font-serif text-xl font-medium text-tealbrand-950">Tamara Ribeiro</h3>
+                                    <p class="text-xs text-sand-600 font-medium uppercase tracking-wider">Psicóloga Clínica</p>
+                                </div>
+                            </div>
+
+                            <blockquote class="text-slate-600 text-sm leading-relaxed italic border-l-2 border-sand-400 pl-4 py-1 mb-6">
+                                "Acredito que ninguém deveria atravessar sozinho seus medos, suas dúvidas, seus ciclos difíceis ou aquele cansaço silencioso que às vezes parece não ter nome."
+                            </blockquote>
+
+                            <div class="space-y-3 pt-2 border-t border-sand-100">
+                                <div class="flex items-center justify-between text-xs text-slate-600">
+                                    <span class="flex items-center gap-2"><i data-lucide="heart-handshake" class="w-4 h-4 text-tealbrand-600"></i> Acolhimento Sem Julgamentos</span>
+                                    <span class="font-semibold text-tealbrand-800">Ativo</span>
+                                </div>
+                                <div class="flex items-center justify-between text-xs text-slate-600">
+                                    <span class="flex items-center gap-2"><i data-lucide="brain" class="w-4 h-4 text-tealbrand-600"></i> Prática Baseada em Evidências</span>
+                                    <span class="font-semibold text-tealbrand-800">Científico</span>
+                                </div>
+                                <div class="flex items-center justify-between text-xs text-slate-600">
+                                    <span class="flex items-center gap-2"><i data-lucide="clock" class="w-4 h-4 text-tealbrand-600"></i> Escuta Sem Pressa</span>
+                                    <span class="font-semibold text-tealbrand-800">Personalizado</span>
+                                </div>
+                            </div>
+
+                            <button onclick="openWhatsappModal()" class="w-full mt-6 bg-sand-100 hover:bg-sand-200 text-tealbrand-900 font-medium text-sm py-3 rounded-xl transition-colors flex items-center justify-center gap-2">
+                                <span>Agendar Conversa Inicial</span>
+                                <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Como Funciona o Atendimento Online e Personalizado (Carrossel posicionado mais acima) -->
+    <section id="como-funciona" class="py-20 bg-tealbrand-900 text-white relative border-y border-tealbrand-800">
+        <div class="absolute inset-0 bg-[radial-gradient(#1e5361_1px,transparent_1px)] [background-size:24px_24px] opacity-20 pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            
+            <!-- Header Section -->
+            <div class="text-center max-w-3xl mx-auto mb-12 space-y-4">
+                <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-tealbrand-800 border border-tealbrand-700 text-sand-300 text-xs font-semibold uppercase tracking-wider">
+                    <i data-lucide="monitor" class="w-4 h-4 text-sand-300"></i>
+                    <span>Prático, Sigiloso e Humanizado</span>
+                </div>
+                <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl text-sand-100 font-normal">
+                    Como funciona o Atendimento Online e Personalizado?
+                </h2>
+                <p class="text-tealbrand-100 text-base sm:text-lg leading-relaxed font-light">
+                    Você pode cuidar da sua saúde mental de qualquer lugar do Brasil, Estados Unidos ou Europa, sem barreiras geográficas.
+                </p>
+            </div>
+
+            <!-- Sticky stacking cards -->
+            <div class="relative max-w-5xl mx-auto px-2 sm:px-12">
+                <div data-scroll-stack class="scroll-stack py-4 px-2">
+                    
+                    <!-- Slide 1 -->
+                    <div data-stack-card class="bg-tealbrand-800/95 border border-tealbrand-700 p-8 rounded-3xl flex flex-col justify-between shadow-xl">
+                        <div class="space-y-4">
+                            <div class="flex items-center justify-between">
+                                <span class="font-serif text-4xl text-sand-300/50 font-bold">01</span>
+                                <div class="w-10 h-10 rounded-xl bg-tealbrand-700/60 text-sand-300 flex items-center justify-center">
+                                    <i data-lucide="message-square" class="w-5 h-5"></i>
+                                </div>
+                            </div>
+                            <h3 class="font-serif text-xl font-medium text-sand-100">Contato Inicial</h3>
+                            <p class="text-tealbrand-100 text-sm leading-relaxed font-light">
+                                Você clica no botão do WhatsApp, envia uma mensagem e conversamos brevemente para entender sua demanda e alinhar suas expectativas.
+                            </p>
+                        </div>
+                        <div class="mt-6 pt-4 border-t border-tealbrand-700/60 flex items-center gap-2 text-xs text-sand-300">
+                            <i data-lucide="check-circle-2" class="w-4 h-4"></i>
+                            <span>Atendimento direto e sem intermediários</span>
+                        </div>
+                    </div>
+
+                    <!-- Slide 2 -->
+                    <div data-stack-card class="bg-tealbrand-800/95 border border-tealbrand-700 p-8 rounded-3xl flex flex-col justify-between shadow-xl">
+                        <div class="space-y-4">
+                            <div class="flex items-center justify-between">
+                                <span class="font-serif text-4xl text-sand-300/50 font-bold">02</span>
+                                <div class="w-10 h-10 rounded-xl bg-tealbrand-700/60 text-sand-300 flex items-center justify-center">
+                                    <i data-lucide="calendar" class="w-5 h-5"></i>
+                                </div>
+                            </div>
+                            <h3 class="font-serif text-xl font-medium text-sand-100">Agendamento Flexível</h3>
+                            <p class="text-tealbrand-100 text-sm leading-relaxed font-light">
+                                Escolhemos juntos o melhor dia e horário na sua rotina. As orientações simples de acesso e o link privativo da videochamada são fornecidos.
+                            </p>
+                        </div>
+                        <div class="mt-6 pt-4 border-t border-tealbrand-700/60 flex items-center gap-2 text-xs text-sand-300">
+                            <i data-lucide="clock" class="w-4 h-4"></i>
+                            <span>Sessões semanais de ~50 minutos</span>
+                        </div>
+                    </div>
+
+                    <!-- Slide 3 -->
+                    <div data-stack-card class="bg-tealbrand-800/95 border border-tealbrand-700 p-8 rounded-3xl flex flex-col justify-between shadow-xl">
+                        <div class="space-y-4">
+                            <div class="flex items-center justify-between">
+                                <span class="font-serif text-4xl text-sand-300/50 font-bold">03</span>
+                                <div class="w-10 h-10 rounded-xl bg-tealbrand-700/60 text-sand-300 flex items-center justify-center">
+                                    <i data-lucide="heart" class="w-5 h-5"></i>
+                                </div>
+                            </div>
+                            <h3 class="font-serif text-xl font-medium text-sand-100">Primeira Sessão & Acolhimento</h3>
+                            <p class="text-tealbrand-100 text-sm leading-relaxed font-light">
+                                Um momento dedicado para você contar sua história, mapear seus objetivos terapêuticos e experimentar um espaço seguro e sem julgamentos.
+                            </p>
+                        </div>
+                        <div class="mt-6 pt-4 border-t border-tealbrand-700/60 flex items-center gap-2 text-xs text-sand-300">
+                            <i data-lucide="shield-check" class="w-4 h-4"></i>
+                            <span>Sigilo ético garantido pelo CFP</span>
+                        </div>
+                    </div>
+
+                    <!-- Slide 4 -->
+                    <div data-stack-card class="bg-tealbrand-800/95 border border-tealbrand-700 p-8 rounded-3xl flex flex-col justify-between shadow-xl">
+                        <div class="space-y-4">
+                            <div class="flex items-center justify-between">
+                                <span class="font-serif text-4xl text-sand-300/50 font-bold">04</span>
+                                <div class="w-10 h-10 rounded-xl bg-tealbrand-700/60 text-sand-300 flex items-center justify-center">
+                                    <i data-lucide="trending-up" class="w-5 h-5"></i>
+                                </div>
+                            </div>
+                            <h3 class="font-serif text-xl font-medium text-sand-100">Acompanhamento Personalizado</h3>
+                            <p class="text-tealbrand-100 text-sm leading-relaxed font-light">
+                                Desenvolvimento contínuo com estratégias da TCC e Terapia do Esquema, focando em regulação emocional, autoestima e autonomia.
+                            </p>
+                        </div>
+                        <div class="mt-6 pt-4 border-t border-tealbrand-700/60 flex items-center gap-2 text-xs text-sand-300">
+                        <i data-lucide="sparkles" class="w-4 h-4"></i>
+                        <span>Metodologia com embasamento científico</span>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Online Requirements Note -->
+        <div class="mt-12 p-6 rounded-2xl bg-tealbrand-800/50 border border-tealbrand-700/60 max-w-2xl mx-auto text-center space-y-2">
+            <div class="flex items-center justify-center gap-2 text-sand-300 font-medium text-sm">
+                <i data-lucide="wifi" class="w-4 h-4"></i>
+                <span>O que você precisa para a consulta?</span>
+            </div>
+            <p class="text-xs text-tealbrand-100 leading-relaxed font-light">
+                Apenas uma conexão estável à internet, um local reservado onde se sinta confortável para conversar livremente, e fones de ouvido.
+            </p>
+        </div>
+
+        <div class="mt-8 flex flex-wrap items-center justify-center gap-4 text-sm text-tealbrand-100">
+            <a href="mailto:tamararibeiropsicologa@gmail.com" class="inline-flex items-center gap-2.5 px-6 py-3 rounded-full bg-tealbrand-800 hover:bg-tealbrand-700 border border-tealbrand-600/80 text-sand-200 hover:text-white transition-all shadow-md">
+                <i data-lucide="mail" class="w-4 h-4 text-sand-300"></i>
+                <span class="font-medium">tamararibeiropsicologa@gmail.com</span>
+            </a>
+        </div>
+
+    </div>
+</section>
+
+<!-- Nova Seção Especializada: Atendimento para Brasileiros no Brasil, EUA e Europa -->
+<section id="exterior" class="py-24 bg-white border-b border-sand-200/60 relative overflow-clip">
+    <div class="absolute -right-20 top-20 w-80 h-80 bg-sand-100 rounded-full blur-3xl pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+            <span class="text-xs uppercase tracking-widest text-sand-600 font-semibold flex items-center justify-center gap-2">
+                <i data-lucide="globe-2" class="w-4 h-4 text-tealbrand-700"></i>
+                <span>Apoio Emocional sem Fronteiras</span>
+            </span>
+            <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl text-tealbrand-950 font-normal">
+                Atendimento Psicológico no Brasil, EUA e Europa
+            </h2>
+            <p class="text-slate-600 text-base sm:text-lg leading-relaxed font-light">
+                Morar fora ou lidar com as pressões do dia a dia no Brasil traz desafios singulares. O consultório online encurta distâncias e oferece um espaço de escuta acolhedor em sua língua materna.
+            </p>
+        </div>
+
+        <div data-scroll-stack class="scroll-stack items-stretch max-w-4xl mx-auto">
+            
+            <!-- Card EUA -->
+            <div data-stack-card class="bg-cream rounded-3xl p-8 border border-sand-200 shadow-xl flex flex-col justify-between space-y-6">
+                <div class="space-y-4">
+                    <div class="w-12 h-12 rounded-2xl bg-tealbrand-800 text-sand-200 flex items-center justify-center font-serif text-lg font-bold">
+                        EUA
+                    </div>
+                    <h3 class="font-serif text-2xl font-medium text-tealbrand-950">Brasileiros nos Estados Unidos</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        Adaptação cultural, o ritmo intenso de trabalho ("the American hustle"), solidão, saudade da família e a gestão de expectativas na imigração. Tenha um espaço seguro para expressar suas angústias em português com total empatia.
+                    </p>
+                </div>
+                <div class="pt-4 border-t border-sand-200/80 space-y-2 text-xs text-slate-500">
+                    <div class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-tealbrand-700"></i> Flexibilidade de fusos horários</div>
+                    <div class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-tealbrand-700"></i> Acolhimento em momentos de transição</div>
+                </div>
+            </div>
+
+            <!-- Card Europa -->
+            <div data-stack-card class="bg-cream rounded-3xl p-8 border border-sand-200 shadow-xl flex flex-col justify-between space-y-6">
+                <div class="space-y-4">
+                    <div class="w-12 h-12 rounded-2xl bg-tealbrand-800 text-sand-200 flex items-center justify-center font-serif text-lg font-bold">
+                        EU
+                    </div>
+                    <h3 class="font-serif text-2xl font-medium text-tealbrand-950">Brasileiros na Europa</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        Seja em Portugal, Reino Unido, Itália, Espanha, Alemanha ou demais países europeus. O choque cultural, a burocracia, a distância dos afetos e a reconstrução da carreira profissional encontram respaldo na TCC e na Terapia do Esquema.
+                    </p>
+                </div>
+                <div class="pt-4 border-t border-sand-200/80 space-y-2 text-xs text-slate-500">
+                    <div class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-tealbrand-700"></i> Suporte para solidão e adaptação</div>
+                    <div class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-tealbrand-700"></i> Atendimento síncrono e sigiloso</div>
+                </div>
+            </div>
+
+            <!-- Card Brasil -->
+            <div data-stack-card class="bg-cream rounded-3xl p-8 border border-sand-200 shadow-xl flex flex-col justify-between space-y-6">
+                <div class="space-y-4">
+                    <div class="w-12 h-12 rounded-2xl bg-tealbrand-800 text-sand-200 flex items-center justify-center font-serif text-lg font-bold">
+                        BR
+                    </div>
+                    <h3 class="font-serif text-2xl font-medium text-tealbrand-950">Atendimento em todo o Brasil</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        Para pacientes em Belo Horizonte (MG) e demais estados brasileiros que buscam praticidade e qualidade clínica sem o estresse de deslocamentos no trânsito diário, mantendo constância terapêutica.
+                    </p>
+                </div>
+                <div class="pt-4 border-t border-sand-200/80 space-y-2 text-xs text-slate-500">
+                    <div class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-tealbrand-700"></i> Sem perda de tempo no trânsito</div>
+                    <div class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-tealbrand-700"></i> Conforto e segurança do seu lar</div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Highlight Banner inside section -->
+        <div class="mt-12 bg-tealbrand-900 text-white rounded-3xl p-8 sm:p-10 flex flex-col md:flex-row items-center justify-between gap-6 shadow-lg">
+            <div class="space-y-2 text-center md:text-left">
+                <h3 class="font-serif text-2xl text-sand-100 font-normal">Reside fora do Brasil ou em território nacional?</h3>
+                <p class="text-tealbrand-100 text-sm max-w-xl font-light">
+                    Agende sua sessão online e converse diretamente com a psicóloga Tamara Ribeiro para alinhar horários e fusos compatíveis.
+                </p>
+            </div>
+            <button onclick="openWhatsappModal()" class="shrink-0 bg-sand-300 hover:bg-sand-200 text-tealbrand-950 font-semibold px-8 py-4 rounded-full transition-colors flex items-center gap-2 shadow-md">
+                <i data-lucide="message-circle" class="w-5 h-5 text-tealbrand-800"></i>
+                <span>Agendar Consulta Online</span>
+            </button>
+        </div>
+    </div>
+</section>
+
+    <!-- Sobre Mim Section -->
+    <section id="sobre" class="py-20 bg-white border-b border-sand-200/60">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Foto da psicóloga na seção Sobre Mim -->
+                <figure class="lg:col-span-5">
+                    <div class="formation-photo rounded-3xl bg-sand-100 p-3 shadow-xl border border-sand-200/80">
+                        <img src="assets/tamara-ribeiro.png" alt="Tamara Ribeiro, psicóloga" class="w-full aspect-[4/5] object-cover object-[center_28%] rounded-2xl" width="533" height="533" decoding="async">
+                    </div>
+                    <figcaption class="mt-5 text-center">
+                        <h3 data-text-reveal class="font-serif text-2xl font-semibold text-tealbrand-950">Tamara Ribeiro</h3>
+                        <p data-text-reveal class="mt-1 text-xs uppercase tracking-widest text-sand-600 font-semibold">Psicóloga Clínica</p>
+                        <p data-text-reveal class="mt-3 text-sm text-slate-600">Atendimento online em português</p>
+                    </figcaption>
+                </figure>
+
+                <!-- Text Content -->
+                <div class="lg:col-span-7 space-y-6">
+                    <div class="inline-flex items-center gap-2 text-sand-600 font-medium text-sm tracking-wider uppercase">
+                        <i data-lucide="sparkles" class="w-4 h-4"></i>
+                        <span>Olá, seja muito bem-vindo(a)</span>
+                    </div>
+
+                    <h2 class="font-serif text-3xl sm:text-4xl text-tealbrand-950 font-normal">
+                        Sou Tamara Ribeiro, e minha missão é simples e profunda: <span class="italic text-sand-600">cuidar de pessoas.</span>
+                    </h2>
+
+                    <div class="space-y-4 text-slate-600 text-base leading-relaxed font-light">
+                        <p>
+                            A Psicologia sempre foi mais do que uma profissão para mim. Acredito genuinamente que ninguém deveria atravessar sozinho seus medos, suas dúvidas, seus ciclos difíceis ou aquele cansaço silencioso que às vezes parece não ter nome.
+                        </p>
+                        <p>
+                            Atuo há <strong class="font-semibold text-slate-800">mais de 15 anos acompanhando vidas, histórias e transformações</strong>. Minha trajetória conta com passagens marcantes pela Psicologia Organizacional e por empresas de diferentes portes, o que expandiu minha visão sobre o ser humano, suas pressões, suas relações interpessoais e suas dinâmicas de desempenho e estresse.
+                        </p>
+                        <p>
+                            Hoje, dedico integralmente meu trabalho ao que pulsa mais forte em mim: <strong class="font-semibold text-slate-800">ajudar pessoas a se reencontrarem consigo mesmas</strong>.
+                        </p>
+                        <p>
+                            No meu consultório online, acolho <strong class="font-semibold text-slate-800">adolescentes, adultos e idosos</strong> que estão buscando algum tipo de resposta, um espaço seguro, ou simplesmente alguém que os escute sem pressa.
+                        </p>
+                    </div>
+
+                    <div class="pt-4 flex flex-wrap items-center gap-6">
+                        <a href="https://www.instagram.com/tamararibeiropsicologa" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-sm font-medium text-tealbrand-800 hover:text-tealbrand-600 transition-colors">
+                            <i data-lucide="instagram" class="w-5 h-5 text-sand-600"></i>
+                            <span>@tamararibeiropsicologa</span>
+                        </a>
+                        <button onclick="openWhatsappModal()" class="inline-flex items-center gap-2 text-sm font-medium text-tealbrand-800 hover:text-tealbrand-600 transition-colors">
+                            <i data-lucide="phone" class="w-5 h-5 text-sand-600"></i>
+                            <span>(31) 9.8385-0655</span>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Abordagens e Serviços Section -->
+    <section id="abordagens" class="py-20 bg-cream">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+                <span class="text-xs uppercase tracking-widest text-sand-600 font-semibold">Como posso te ajudar</span>
+                <h2 class="font-serif text-3xl sm:text-4xl text-tealbrand-950 font-normal">
+                    Abordagens terapêuticas baseadas em ciência e humanização
+                </h2>
+                <p class="text-slate-600 text-base leading-relaxed">
+                    A prática clínica é estruturada com métodos reconhecidos mundialmente para trazer clareza, alívio emocional e transformações duradouras.
+                </p>
+            </div>
+
+            <div data-scroll-stack class="scroll-stack max-w-4xl mx-auto">
+                
+                <!-- Card 1: TCC -->
+                <div data-stack-card class="bg-white rounded-3xl p-8 border border-sand-200/80 shadow-xl flex flex-col justify-between group">
+                    <div class="space-y-4">
+                        <div class="w-12 h-12 rounded-2xl bg-sand-100 text-tealbrand-800 flex items-center justify-center group-hover:bg-tealbrand-800 group-hover:text-sand-200 transition-colors">
+                            <i data-lucide="brain-circuit" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="font-serif text-xl font-medium text-tealbrand-950">Terapia Cognitivo-Comportamental (TCC)</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">
+                            Focada na identificação de pensamentos disfuncionais e padrões de comportamento. Auxilia de forma prática no tratamento da ansiedade, depressão e reorganização da rotina.
+                        </p>
+                    </div>
+                    <ul class="mt-6 pt-4 border-t border-sand-100 text-xs text-slate-500 space-y-2">
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-tealbrand-600"></i> Reestruturação cognitiva</li>
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-tealbrand-600"></i> Estratégias práticas para ansiedade</li>
+                    </ul>
+                </div>
+
+                <!-- Card 2: Terapia do Esquema -->
+                <div data-stack-card class="bg-white rounded-3xl p-8 border border-sand-200/80 shadow-xl flex flex-col justify-between group">
+                    <div class="space-y-4">
+                        <div class="w-12 h-12 rounded-2xl bg-sand-100 text-tealbrand-800 flex items-center justify-center group-hover:bg-tealbrand-800 group-hover:text-sand-200 transition-colors">
+                            <i data-lucide="layers" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="font-serif text-xl font-medium text-tealbrand-950">Terapia do Esquema</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">
+                            Ideal para compreender padrões emocionais profundos originados na infância ou adolescência que se repetem na vida adulta, afetando relacionamentos e a autopercepção.
+                        </p>
+                    </div>
+                    <ul class="mt-6 pt-4 border-t border-sand-100 text-xs text-slate-500 space-y-2">
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-tealbrand-600"></i> Identificação de esquemas prévios</li>
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-tealbrand-600"></i> Construção de relações mais saudáveis</li>
+                    </ul>
+                </div>
+
+                <!-- Card 3: Público Atendido -->
+                <div data-stack-card class="bg-white rounded-3xl p-8 border border-sand-200/80 shadow-xl flex flex-col justify-between group">
+                    <div class="space-y-4">
+                        <div class="w-12 h-12 rounded-2xl bg-sand-100 text-tealbrand-800 flex items-center justify-center group-hover:bg-tealbrand-800 group-hover:text-sand-200 transition-colors">
+                            <i data-lucide="users" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="font-serif text-xl font-medium text-tealbrand-950">Adolescentes, Adultos e Idosos</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">
+                            Atendimento individualizado respeitando a fase de vida de cada paciente: dilemas da juventude, desafios da vida adulta, carreira, envelhecimento e ressignificação de trajetórias.
+                        </p>
+                    </div>
+                    <ul class="mt-6 pt-4 border-t border-sand-100 text-xs text-slate-500 space-y-2">
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-tealbrand-600"></i> Linguagem adaptada a cada fase</li>
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-tealbrand-600"></i> Suporte nas transições de vida</li>
+                    </ul>
+                </div>
+
+                <!-- Card 4: Terceira Onda (DBT & ACT) -->
+                <div data-stack-card class="bg-white rounded-3xl p-8 border border-sand-200/80 shadow-xl flex flex-col justify-between group">
+                    <div class="space-y-4">
+                        <div class="w-12 h-12 rounded-2xl bg-sand-100 text-tealbrand-800 flex items-center justify-center group-hover:bg-tealbrand-800 group-hover:text-sand-200 transition-colors">
+                            <i data-lucide="compass" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="font-serif text-xl font-medium text-tealbrand-950">Regulação Emocional (DBT e ACT)</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">
+                            Integração de Terapia Comportamental Dialética (DBT) e Terapia de Aceitação e Compromisso (ACT) para lidar com dores intensas, aceitação do momento e tolerância ao mal-estar.
+                        </p>
+                    </div>
+                    <ul class="mt-6 pt-4 border-t border-sand-100 text-xs text-slate-500 space-y-2">
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-tealbrand-600"></i> Manejo de emoções intensas</li>
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-tealbrand-600"></i> Vivência com valores pessoais</li>
+                    </ul>
+                </div>
+
+                <!-- Card 5: Estoicismo & Bem-Estar -->
+                <div data-stack-card class="bg-white rounded-3xl p-8 border border-sand-200/80 shadow-xl flex flex-col justify-between group">
+                    <div class="space-y-4">
+                        <div class="w-12 h-12 rounded-2xl bg-sand-100 text-tealbrand-800 flex items-center justify-center group-hover:bg-tealbrand-800 group-hover:text-sand-200 transition-colors">
+                            <i data-lucide="sun" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="font-serif text-xl font-medium text-tealbrand-950">Estoicismo e Regulação</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">
+                            Ferramentas de regulação emocional inspiradas em princípios estoicos práticos para distinguir o que está sob seu controle e o que precisa ser acolhido ou resignificado.
+                        </p>
+                    </div>
+                    <ul class="mt-6 pt-4 border-t border-sand-100 text-xs text-slate-500 space-y-2">
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-tealbrand-600"></i> Foco naquilo que depende de você</li>
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-tealbrand-600"></i> Clareza técnica e filosófica</li>
+                    </ul>
+                </div>
+
+                <!-- Card 6: Carreira & Desenvolvimento Humano -->
+                <div data-stack-card class="bg-white rounded-3xl p-8 border border-sand-200/80 shadow-xl flex flex-col justify-between group">
+                    <div class="space-y-4">
+                        <div class="w-12 h-12 rounded-2xl bg-sand-100 text-tealbrand-800 flex items-center justify-center group-hover:bg-tealbrand-800 group-hover:text-sand-200 transition-colors">
+                            <i data-lucide="briefcase" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="font-serif text-xl font-medium text-tealbrand-950">Desenvolvimento Humano & Carreira</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">
+                            Suporte especializado para desafios do ambiente corporativo, estresse profissional (Burnout), liderança e conflitos em momentos de transição de carreira.
+                        </p>
+                    </div>
+                    <ul class="mt-6 pt-4 border-t border-sand-100 text-xs text-slate-500 space-y-2">
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-tealbrand-600"></i> Bagagem MBA pela FGV</li>
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-tealbrand-600"></i> Equilíbrio trabalho e vida pessoal</li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Formação Acadêmica Section -->
+    <section id="formacao" class="py-20 bg-white border-y border-sand-200/60">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
+
+                <!-- Academic Timeline / List -->
+                <div class="lg:col-span-12 space-y-8">
+
+                    <div class="space-y-4">
+                        <span class="text-xs uppercase tracking-widest text-sand-600 font-semibold">Trajetória e rigor técnico</span>
+                        <h2 data-text-reveal class="font-serif text-3xl sm:text-4xl text-tealbrand-950 font-normal">
+                            Formação Acadêmica e Especializações
+                        </h2>
+                        <p data-text-reveal class="text-slate-600 text-sm sm:text-base leading-relaxed">
+                            Conheça a trajetória acadêmica e as formações complementares da psicóloga.
+                        </p>
+                    </div>
+                    
+                    <!-- Section Category 1: Formação Acadêmica Superior -->
+                    <div class="space-y-4">
+                        <h3 class="text-xs font-bold uppercase tracking-wider text-sand-600 flex items-center gap-2">
+                            <i data-lucide="graduation-cap" class="w-4 h-4"></i>
+                            <span data-text-reveal>Pós-Graduações e MBAs</span>
+                        </h3>
+
+                        <div data-scroll-stack class="scroll-stack">
+                            <!-- FGV -->
+                            <div data-stack-card class="p-6 rounded-2xl bg-cream border border-sand-200 shadow-xl">
+                                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-2">
+                                    <h4 data-text-reveal class="font-serif text-lg font-semibold text-tealbrand-950">Fundação Getulio Vargas (FGV)</h4>
+                                    <span data-text-reveal class="text-xs font-semibold px-2.5 py-1 rounded-full bg-sand-200 text-slate-700 w-fit">2012 – 2014</span>
+                                </div>
+                                <p data-text-reveal class="text-sm font-medium text-slate-800">Master of Business Administration (MBA) - Desenvolvimento Humano de Gestores</p>
+                            </div>
+
+                            <!-- PUC Minas -->
+                            <div data-stack-card class="p-6 rounded-2xl bg-cream border border-sand-200 shadow-xl">
+                                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-2">
+                                    <h4 data-text-reveal class="font-serif text-lg font-semibold text-tealbrand-950">PUC Minas</h4>
+                                    <span data-text-reveal class="text-xs font-semibold px-2.5 py-1 rounded-full bg-sand-200 text-slate-700 w-fit">2009</span>
+                                </div>
+                                <p data-text-reveal class="text-sm font-medium text-slate-800">Pós-Graduação em Gestão Estratégica de Pessoas</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Section Category 2: Especializações Clínicas Wainer Psicologia -->
+                    <div class="space-y-4 pt-4">
+                        <h3 class="text-xs font-bold uppercase tracking-wider text-sand-600 flex items-center gap-2">
+                            <i data-lucide="stethoscope" class="w-4 h-4"></i>
+                            <span data-text-reveal>Especializações em Saúde Mental — Grupo Wainer Psicologia</span>
+                        </h3>
+
+                        <div data-scroll-stack class="scroll-stack">
+                            
+                            <!-- TCC -->
+                            <div data-stack-card class="p-5 rounded-2xl bg-cream border border-sand-200 shadow-xl space-y-1">
+                                <span data-text-reveal class="text-xs text-sand-600 font-semibold">Emitido em Ago de 2022</span>
+                                <h4 data-text-reveal class="font-serif text-base font-semibold text-tealbrand-950">Terapia Cognitivo-Comportamental</h4>
+                                <p data-text-reveal class="text-xs text-slate-600">Formação nas diretrizes clínicas da TCC para transtornos emocionais.</p>
+                            </div>
+
+                            <!-- Estoicismo -->
+                            <div data-stack-card class="p-5 rounded-2xl bg-cream border border-sand-200 shadow-xl space-y-1">
+                                <span data-text-reveal class="text-xs text-sand-600 font-semibold">Emitido em Fev de 2023</span>
+                                <h4 data-text-reveal class="font-serif text-base font-semibold text-tealbrand-950">Estoicismo e Regulação Emocional</h4>
+                                <p data-text-reveal class="text-xs text-slate-600">Técnicas de bem-estar, aceitação e regulação das emoções.</p>
+                            </div>
+
+                            <!-- TCC Infância e Adolescência -->
+                            <div data-stack-card class="p-5 rounded-2xl bg-cream border border-sand-200 shadow-xl space-y-1">
+                                <span data-text-reveal class="text-xs text-sand-600 font-semibold">Emitido em Ago de 2022</span>
+                                <h4 data-text-reveal class="font-serif text-base font-semibold text-tealbrand-950">TCC na Infância e Adolescência</h4>
+                                <p data-text-reveal class="text-xs text-slate-600">Fundamentos e principais técnicas aplicadas ao desenvolvimento jovem.</p>
+                            </div>
+
+                            <!-- DBT -->
+                            <div data-stack-card class="p-5 rounded-2xl bg-cream border border-sand-200 shadow-xl space-y-1">
+                                <span data-text-reveal class="text-xs text-sand-600 font-semibold">Emitido em Jun de 2022</span>
+                                <h4 data-text-reveal class="font-serif text-base font-semibold text-tealbrand-950">Terapia Comportamental Dialética</h4>
+                                <p data-text-reveal class="text-xs text-slate-600">Habilidades de regulação emocional e tolerância ao mal-estar.</p>
+                            </div>
+
+                            <!-- Clusters A, B e C -->
+                            <div data-stack-card class="p-5 rounded-2xl bg-cream border border-sand-200 shadow-xl space-y-1">
+                                <span data-text-reveal class="text-xs text-sand-600 font-semibold">Emitido em Jun de 2022</span>
+                                <h4 data-text-reveal class="font-serif text-base font-semibold text-tealbrand-950">Clusters A, B e C na Prática Clínica</h4>
+                                <p data-text-reveal class="text-xs text-slate-600">Manejo prático de funcionamentos de personalidade complexos.</p>
+                            </div>
+
+                            <!-- ACT -->
+                            <div data-stack-card class="p-5 rounded-2xl bg-cream border border-sand-200 shadow-xl space-y-1">
+                                <span data-text-reveal class="text-xs text-sand-600 font-semibold">Emitido em Mai de 2022</span>
+                                <h4 data-text-reveal class="font-serif text-base font-semibold text-tealbrand-950">Terapia da Aceitação e Compromisso</h4>
+                                <p data-text-reveal class="text-xs text-slate-600">Flexibilidade psicológica e ação orientada a valores de vida.</p>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- Section Category 3: Desenvolvimento de Líderes -->
+                    <div class="space-y-4 pt-4">
+                        <h3 class="text-xs font-bold uppercase tracking-wider text-sand-600 flex items-center gap-2">
+                            <i data-lucide="building-2" class="w-4 h-4"></i>
+                            <span data-text-reveal>Desenvolvimento Humano e Institucional</span>
+                        </h3>
+
+                        <div class="p-5 rounded-2xl bg-cream border border-sand-200 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                            <div>
+                                <h4 data-text-reveal class="font-serif text-base font-semibold text-tealbrand-950">Fundação Dom Cabral</h4>
+                                <p data-text-reveal class="text-xs text-slate-600">Programa de Desenvolvimento de Líderes</p>
+                            </div>
+                            <span data-text-reveal class="text-xs font-semibold px-2.5 py-1 rounded-full bg-sand-200 text-slate-700 w-fit">2020</span>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Primeiro contato / o que esperar -->
+    <section id="atendimento" class="py-20 bg-cream">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+                <span class="text-xs uppercase tracking-widest text-sand-600 font-semibold">Primeiro contato</span>
+                <h2 class="font-serif text-3xl sm:text-4xl text-tealbrand-950 font-normal">
+                    Vamos conversar sobre o que você está buscando?
+                </h2>
+                <p class="text-slate-600 text-base leading-relaxed">
+                    Pelo WhatsApp, você pode tirar dúvidas sobre o atendimento online, verificar disponibilidade e conversar sobre os próximos passos. A decisão de iniciar o acompanhamento é sua.
+                </p>
+            </div>
+
+            <div data-scroll-stack class="scroll-stack max-w-4xl mx-auto">
+                
+                <div data-stack-card class="bg-white rounded-3xl p-8 border border-sand-200 text-center shadow-xl space-y-4">
+                    <div class="w-14 h-14 mx-auto rounded-full bg-sand-100 text-tealbrand-800 flex items-center justify-center">
+                        <i data-lucide="message-circle" class="w-7 h-7"></i>
+                    </div>
+                    <h3 class="font-serif text-xl font-medium text-tealbrand-950">Tire suas dúvidas</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        Pergunte sobre modalidade online, horários disponíveis e valores diretamente à profissional.
+                    </p>
+                </div>
+
+                <div data-stack-card class="bg-white rounded-3xl p-8 border border-sand-200 text-center shadow-xl space-y-4">
+                    <div class="w-14 h-14 mx-auto rounded-full bg-sand-100 text-tealbrand-800 flex items-center justify-center">
+                        <i data-lucide="user-round" class="w-7 h-7"></i>
+                    </div>
+                    <h3 class="font-serif text-xl font-medium text-tealbrand-950">Converse sobre o que precisa</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        Você decide o que deseja compartilhar nesse primeiro contato; não é preciso enviar detalhes pessoais ou informações íntimas pelo WhatsApp.
+                    </p>
+                </div>
+
+                <div data-stack-card class="bg-white rounded-3xl p-8 border border-sand-200 text-center shadow-xl space-y-4">
+                    <div class="w-14 h-14 mx-auto rounded-full bg-sand-100 text-tealbrand-800 flex items-center justify-center">
+                        <i data-lucide="video" class="w-7 h-7"></i>
+                    </div>
+                    <h3 class="font-serif text-xl font-medium text-tealbrand-950">Atendimento online</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        As sessões acontecem por videochamada. Para participar, você precisa de internet e de um local reservado.
+                    </p>
+                </div>
+
+            </div>
+
+            <div class="text-center mt-12 space-y-3">
+                <button onclick="openWhatsappModal()" class="inline-flex items-center justify-center gap-2 bg-tealbrand-800 hover:bg-tealbrand-900 text-white font-medium text-sm sm:text-base px-8 py-4 rounded-full transition-colors shadow-md">
+                    <i data-lucide="message-circle" class="w-5 h-5 text-sand-300"></i>
+                    <span>Agendar uma primeira conversa</span>
+                </button>
+                <p class="text-xs text-slate-500">Sem compromisso pelo site: você conversa diretamente com a psicóloga para saber se o atendimento faz sentido para você.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Localização e Modalidade -->
+    <section class="py-20 bg-cream">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-white rounded-3xl border border-sand-200 p-8 sm:p-12 shadow-sm">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                    
+                    <div class="lg:col-span-7 space-y-4">
+                        <div class="inline-flex items-center gap-2 text-sand-600 font-semibold text-xs tracking-wider uppercase">
+                            <i data-lucide="globe" class="w-4 h-4"></i>
+                            <span>Atendimento Global: Brasil, EUA e Europa</span>
+                        </div>
+                        <h2 class="font-serif text-2xl sm:text-3xl text-tealbrand-950 font-normal">
+                            Consultório Online | Conectando você ao acolhimento psicológico onde quer que esteja
+                        </h2>
+                        <p class="text-slate-600 text-sm sm:text-base leading-relaxed">
+                            Com base em Belo Horizonte (MG), a psicóloga Tamara Ribeiro atende brasileiros em todo o território nacional, bem como expatriados e imigrantes nos Estados Unidos e em países da Europa, superando distâncias geográficas com segurança e ética profissional.
+                        </p>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">
+                            <div class="flex items-start gap-3">
+                                <div class="p-2 rounded-xl bg-sand-100 text-tealbrand-800">
+                                    <i data-lucide="lock" class="w-5 h-5"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-xs font-bold text-slate-800">Sigilo Profissional</h4>
+                                    <p class="text-xs text-slate-500">Conforme o Código de Ética do Psicólogo (CFP).</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-3">
+                                <div class="p-2 rounded-xl bg-sand-100 text-tealbrand-800">
+                                    <i data-lucide="calendar" class="w-5 h-5"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-xs font-bold text-slate-800">Fusos Horários Flexíveis</h4>
+                                    <p class="text-xs text-slate-500">Agendamentos combinados para sua rotina no exterior.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="lg:col-span-5 bg-sand-100/60 rounded-2xl p-6 border border-sand-200 text-center space-y-4">
+                        <div class="w-12 h-12 mx-auto rounded-full bg-tealbrand-800 text-sand-200 flex items-center justify-center">
+                            <i data-lucide="phone-call" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="font-serif text-lg font-semibold text-tealbrand-950">Atendimento Direto</h3>
+                        <p class="text-xs text-slate-600 leading-relaxed">
+                            Tire suas dúvidas ou agende sua primeira sessão de forma rápida e acolhedora.
+                        </p>
+                        <button onclick="openWhatsappModal()" class="w-full inline-flex items-center justify-center gap-2 bg-tealbrand-800 hover:bg-tealbrand-900 text-white font-medium text-sm py-3 rounded-xl transition-colors">
+                            <i data-lucide="message-circle" class="w-4 h-4 text-sand-300"></i>
+                            <span>Conversar via WhatsApp</span>
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Dúvidas Frequentes -->
+    <section id="faq" class="py-20 bg-white border-t border-sand-200/60">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center mb-16 space-y-4">
+                <span class="text-xs uppercase tracking-widest text-sand-600 font-semibold">Esclarecimentos</span>
+                <h2 class="font-serif text-3xl sm:text-4xl text-tealbrand-950 font-normal">
+                    Dúvidas Frequentes
+                </h2>
+                <p class="text-slate-600 text-base">
+                    Respostas claras sobre a modalidade de psicoterapia online no Brasil, EUA e Europa.
+                </p>
+            </div>
+
+            <!-- Accordion List -->
+            <div class="space-y-4" id="faq-accordion">
+                
+                <!-- Item 1 -->
+                <div class="border border-sand-200 rounded-2xl overflow-hidden bg-cream">
+                    <button onclick="toggleFaq(this)" class="w-full px-6 py-5 text-left font-serif text-base sm:text-lg font-medium text-tealbrand-950 flex justify-between items-center gap-4 hover:bg-sand-100/50 transition-colors">
+                        <span>Como funciona a Terapia Online para quem mora nos EUA ou Europa?</span>
+                        <i data-lucide="chevron-down" class="w-5 h-5 text-sand-600 transform transition-transform duration-200"></i>
+                    </button>
+                    <div class="hidden px-6 pb-5 text-sm text-slate-600 leading-relaxed border-t border-sand-200/60 pt-4">
+                        O atendimento é realizado por videochamada em plataforma segura e sigilosa. É ideal para expatriados e imigrantes brasileiros que buscam apoio emocional na língua materna, com horários e fusos ajustados para facilitar a rotina no exterior.
+                    </div>
+                </div>
+
+                <!-- Item 2 -->
+                <div class="border border-sand-200 rounded-2xl overflow-hidden bg-cream">
+                    <button onclick="toggleFaq(this)" class="w-full px-6 py-5 text-left font-serif text-base sm:text-lg font-medium text-tealbrand-950 flex justify-between items-center gap-4 hover:bg-sand-100/50 transition-colors">
+                        <span>Qual é a duração e frequência das sessões?</span>
+                        <i data-lucide="chevron-down" class="w-5 h-5 text-sand-600 transform transition-transform duration-200"></i>
+                    </button>
+                    <div class="hidden px-6 pb-5 text-sm text-slate-600 leading-relaxed border-t border-sand-200/60 pt-4">
+                        Cada sessão tem duração média de 50 minutos. A frequência é geralmente semanal, o que permite dar continuidade e ritmo ao tratamento, mas os detalhes são combinados individualmente de acordo com a sua necessidade.
+                    </div>
+                </div>
+
+                <!-- Item 3 -->
+                <div class="border border-sand-200 rounded-2xl overflow-hidden bg-cream">
+                    <button onclick="toggleFaq(this)" class="w-full px-6 py-5 text-left font-serif text-base sm:text-lg font-medium text-tealbrand-950 flex justify-between items-center gap-4 hover:bg-sand-100/50 transition-colors">
+                        <span>Você atende por convênio médico?</span>
+                        <i data-lucide="chevron-down" class="w-5 h-5 text-sand-600 transform transition-transform duration-200"></i>
+                    </button>
+                    <div class="hidden px-6 pb-5 text-sm text-slate-600 leading-relaxed border-t border-sand-200/60 pt-4">
+                        Os atendimentos são estritamente particulares. No entanto, forneço recibos com todas as especificações técnicas necessárias para que você possa solicitar o reembolso da consulta junto ao seu plano ou convênio de saúde.
+                    </div>
+                </div>
+
+                <!-- Item 4 -->
+                <div class="border border-sand-200 rounded-2xl overflow-hidden bg-cream">
+                    <button onclick="toggleFaq(this)" class="w-full px-6 py-5 text-left font-serif text-base sm:text-lg font-medium text-tealbrand-950 flex justify-between items-center gap-4 hover:bg-sand-100/50 transition-colors">
+                        <span>Como é garantido o sigilo do atendimento?</span>
+                        <i data-lucide="chevron-down" class="w-5 h-5 text-sand-600 transform transition-transform duration-200"></i>
+                    </button>
+                    <div class="hidden px-6 pb-5 text-sm text-slate-600 leading-relaxed border-t border-sand-200/60 pt-4">
+                        O sigilo é um dever ético fundamental regulamentado pelo Conselho Federal de Psicologia (CFP). Todas as informações compartilhadas durante as sessões são estritamente confidenciais.
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Final CTA Banner -->
+    <section class="py-16 gradient-teal-sand text-white relative overflow-hidden">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6 relative z-10">
+            <h2 class="font-serif text-3xl sm:text-4xl text-sand-100 font-normal">
+                Pronto(a) para dar o próximo passo no cuidado com você?
+            </h2>
+            <p class="text-tealbrand-100 text-base max-w-2xl mx-auto font-light">
+                Estou aqui para te escutar sem pressa, com leveza e acolhimento. Agende sua primeira conversa no WhatsApp.
+            </p>
+            <div>
+                <button onclick="openWhatsappModal()" class="inline-flex items-center justify-center gap-3 bg-sand-300 hover:bg-sand-200 text-tealbrand-950 font-semibold text-base px-8 py-4 rounded-full transition-all duration-300 shadow-lg transform hover:-translate-y-0.5">
+                    <i data-lucide="message-circle" class="w-5 h-5 text-tealbrand-800"></i>
+                    <span>Conversar no WhatsApp: (31) 9.8385-0655</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-tealbrand-950 text-slate-400 py-12 border-t border-tealbrand-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center pb-8 border-b border-tealbrand-900">
+                
+                <!-- Logo & Disclaimer -->
+                <div class="md:col-span-6 space-y-3">
+                    <img src="assets/logo-tamara-ribeiro.png" alt="Tamara Ribeiro — Psicóloga" class="w-40 max-w-full h-auto rounded-lg border border-tealbrand-800" width="546" height="337" loading="lazy" decoding="async">
+                    <p class="text-xs text-slate-500 max-w-md">
+                        Psicoterapia Online no Brasil, EUA e Europa baseada na Terapia Cognitivo-Comportamental e Terapia do Esquema.
+                    </p>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="md:col-span-6 flex flex-wrap justify-start md:justify-end gap-6 text-xs text-slate-400 font-medium">
+                    <a href="mailto:tamararibeiropsicologa@gmail.com" class="hover:text-sand-300 flex items-center gap-1.5 transition-colors">
+                        <i data-lucide="mail" class="w-4 h-4"></i> tamararibeiropsicologa@gmail.com
+                    </a>
+                    <a href="https://www.instagram.com/tamararibeiropsicologa" target="_blank" rel="noopener noreferrer" class="hover:text-sand-300 flex items-center gap-1.5 transition-colors">
+                        <i data-lucide="instagram" class="w-4 h-4"></i> Instagram
+                    </a>
+                    <button onclick="openWhatsappModal()" class="hover:text-sand-300 flex items-center gap-1.5 transition-colors">
+                        <i data-lucide="phone" class="w-4 h-4"></i> WhatsApp
+                    </button>
+                </div>
+
+            </div>
+
+            <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-4">
+                <p>&copy; 2026 Tamara Ribeiro Psicóloga. Todos os direitos reservados. Atendimento Brasil, EUA e Europa.</p>
+                <p class="text-slate-600">Este site não substitui atendimento de emergência psiquiátrica. Em crise, ligue 188 (CVV).</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <button onclick="openWhatsappModal()" aria-label="WhatsApp" class="hidden lg:flex fixed bottom-6 right-6 z-50 bg-tealbrand-800 hover:bg-tealbrand-900 text-white p-4 rounded-full shadow-2xl transition-all duration-300 transform hover:scale-105 items-center justify-center group border-2 border-sand-300">
+        <i data-lucide="message-circle" class="w-7 h-7 text-sand-200"></i>
+        <span class="max-w-0 overflow-hidden whitespace-nowrap group-hover:max-w-xs transition-all duration-300 ease-in-out text-xs font-semibold pl-0 group-hover:pl-2">
+            Falar no WhatsApp
+        </span>
+    </button>
+
+    <!-- WhatsApp Quick Message Builder Modal -->
+    <div id="whatsapp-modal" class="fixed inset-0 z-50 hidden bg-tealbrand-950/60 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="bg-white rounded-3xl max-w-md w-full p-6 sm:p-8 shadow-2xl border border-sand-200 relative animate-in fade-in zoom-in duration-200">
+            
+            <button onclick="closeWhatsappModal()" class="absolute top-4 right-4 p-2 text-slate-400 hover:text-slate-600 rounded-full hover:bg-slate-100">
+                <i data-lucide="x" class="w-5 h-5"></i>
+            </button>
+
+            <div class="flex items-center gap-3 mb-4">
+                <div class="w-10 h-10 rounded-full bg-tealbrand-800 text-sand-200 flex items-center justify-center">
+                    <i data-lucide="message-square" class="w-5 h-5"></i>
+                </div>
+                <div>
+                    <h3 class="font-serif text-lg font-medium text-tealbrand-950">Iniciar Atendimento</h3>
+                    <p class="text-xs text-slate-500">Escolha o assunto para facilitar a conversa</p>
+                </div>
+            </div>
+
+            <form onsubmit="sendWhatsappMessage(event)" class="space-y-4">
+                <div>
+                    <label class="block text-xs font-medium text-slate-700 mb-1">Seu Nome</label>
+                    <input type="text" id="user-name" required placeholder="Digite seu nome" class="w-full px-4 py-2.5 rounded-xl border border-sand-300 text-sm focus:outline-none focus:ring-2 focus:ring-tealbrand-600 bg-cream">
+                </div>
+
+                <div>
+                    <label class="block text-xs font-medium text-slate-700 mb-1">Qual é o seu objetivo principal?</label>
+                    <select id="user-objective" class="w-full px-4 py-2.5 rounded-xl border border-sand-300 text-sm focus:outline-none focus:ring-2 focus:ring-tealbrand-600 bg-cream">
+                        <option value="Agendar uma primeira conversa">Agendar uma primeira conversa</option>
+                        <option value="Tirar dúvidas sobre a Terapia Online">Tirar dúvidas sobre a Terapia Online</option>
+                        <option value="Saber mais sobre TCC e Terapia do Esquema">Saber mais sobre TCC e Terapia do Esquema</option>
+                        <option value="Atendimento para adolescente ou idoso">Atendimento para adolescente ou idoso</option>
+                        <option value="Orientação sobre reembolso de plano">Orientação sobre reembolso de plano</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-medium text-slate-700 mb-1">Mensagem rápida (Opcional)</label>
+                    <textarea id="user-message" rows="2" placeholder="Gostaria de saber horários disponíveis..." class="w-full px-4 py-2.5 rounded-xl border border-sand-300 text-sm focus:outline-none focus:ring-2 focus:ring-tealbrand-600 bg-cream"></textarea>
+                </div>
+
+                <button type="submit" class="w-full bg-tealbrand-800 hover:bg-tealbrand-900 text-white font-medium text-sm py-3.5 rounded-xl transition-colors flex items-center justify-center gap-2">
+                    <i data-lucide="send" class="w-4 h-4 text-sand-300"></i>
+                    <span>Enviar para WhatsApp (31) 9.8385-0655</span>
+                </button>
+            </form>
+
+            <p class="text-[10px] text-center text-slate-400 mt-4">
+                Você será redirecionado(a) diretamente para o aplicativo do WhatsApp.
+            </p>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // Reveal the professional portrait with a gentle bounce as it enters the viewport.
+        const formationPhoto = document.querySelector('.formation-photo');
+        if (formationPhoto && 'IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+            formationPhoto.classList.add('is-pending');
+            const photoObserver = new IntersectionObserver((entries, observer) => {
+                if (entries.some(entry => entry.isIntersecting)) {
+                    formationPhoto.classList.remove('is-pending');
+                    formationPhoto.classList.add('is-visible');
+                    observer.disconnect();
+                }
+            }, { threshold: 0.25 });
+            photoObserver.observe(formationPhoto);
+        }
+
+        // Reveal formation copy word by word through a clipped mask as each line enters view.
+        const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        const revealTargets = document.querySelectorAll('#formacao [data-text-reveal]');
+        if ('IntersectionObserver' in window && !reducedMotion) {
+            const revealObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (!entry.isIntersecting) return;
+                    entry.target.classList.add('is-visible');
+                    observer.unobserve(entry.target);
+                });
+            }, { threshold: 0.2 });
+
+            revealTargets.forEach(element => {
+                const words = element.textContent.trim().split(/\s+/);
+                if (!words.length || !words[0]) return;
+                const fragment = document.createDocumentFragment();
+                words.forEach((word, index) => {
+                    const mask = document.createElement('span');
+                    mask.className = 'text-reveal-mask';
+                    const wordSpan = document.createElement('span');
+                    wordSpan.className = 'text-reveal-word';
+                    wordSpan.style.setProperty('--word-order', index);
+                    wordSpan.textContent = word;
+                    mask.append(wordSpan);
+                    fragment.append(mask);
+                    if (index < words.length - 1) fragment.append(document.createTextNode(' '));
+                });
+                element.replaceChildren(fragment);
+                element.classList.add('text-reveal-ready');
+                revealObserver.observe(element);
+            });
+        }
+
+        // Initialize sticky stacking for each group of cards.
+        document.querySelectorAll('[data-scroll-stack]').forEach(stack => {
+            Array.from(stack.children)
+                .filter(card => card.hasAttribute('data-stack-card'))
+                .forEach((card, index) => {
+                    card.classList.add('scroll-stack-card');
+                    card.style.setProperty('--stack-layer', index + 1);
+                    card.style.setProperty('--stack-top', `${96 + index * 22}px`);
+                    card.style.setProperty('--stack-top-mobile', `${84 + index * 14}px`);
+                });
+        });
+
+        // Mobile Menu Toggle
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+
+        document.getElementById('mobile-menu-btn')?.addEventListener('click', toggleMobileMenu);
+
+        // Accordion functionality for FAQ
+        function toggleFaq(button) {
+            const content = button.nextElementSibling;
+            const icon = button.querySelector('[data-lucide="chevron-down"]');
+            
+            const isHidden = content.classList.contains('hidden');
+            
+            // Close all FAQ items
+            document.querySelectorAll('#faq-accordion > div').forEach(item => {
+                const itemContent = item.querySelector('div');
+                const itemIcon = item.querySelector('[data-lucide="chevron-down"]');
+                if (itemContent) itemContent.classList.add('hidden');
+                if (itemIcon) itemIcon.style.transform = 'rotate(0deg)';
+            });
+
+            // If it was hidden, open clicked item
+            if (isHidden) {
+                content.classList.remove('hidden');
+                if (icon) icon.style.transform = 'rotate(180deg)';
+            }
+        }
+
+        // WhatsApp Modal handling
+        function openWhatsappModal() {
+            const modal = document.getElementById('whatsapp-modal');
+            modal.classList.remove('hidden');
+        }
+
+        function closeWhatsappModal() {
+            const modal = document.getElementById('whatsapp-modal');
+            modal.classList.add('hidden');
+        }
+
+        // Close Modal when clicking background
+        document.getElementById('whatsapp-modal')?.addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeWhatsappModal();
+            }
+        });
+
+        // Send Custom WhatsApp message
+        function sendWhatsappMessage(event) {
+            event.preventDefault();
+            
+            const name = document.getElementById('user-name').value.trim();
+            const objective = document.getElementById('user-objective').value;
+            const message = document.getElementById('user-message').value.trim();
+            
+            let text = `Olá, Tamara! Meu nome é ${name}.\n`;
+            text += `Gostaria de: ${objective}.\n`;
+            if (message) {
+                text += `Mensagem: ${message}`;
+            }
+
+            const phone = "5531983850655";
+            const encodedText = encodeURIComponent(text);
+            const whatsappUrl = `https://wa.me/${phone}?text=${encodedText}`;
+
+            window.open(whatsappUrl, '_blank');
+            closeWhatsappModal();
+        }
+    </script>
+</body>
+</html>
